@@ -10,12 +10,18 @@ const nextConfig = {
     unoptimized: true,
   },
   // Replit environment configuration
-  experimental: {
-    allowedHosts: true,
-  },
-  // Configure for development server
-  async rewrites() {
-    return []
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, no-store, must-revalidate',
+          },
+        ],
+      },
+    ]
   },
 }
 
