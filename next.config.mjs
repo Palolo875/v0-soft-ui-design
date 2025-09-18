@@ -9,6 +9,14 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Replit environment configuration
+  experimental: {
+    allowedHosts: true,
+  },
+  // Configure for development server
+  async rewrites() {
+    return []
+  },
 }
 
 export default nextConfig
